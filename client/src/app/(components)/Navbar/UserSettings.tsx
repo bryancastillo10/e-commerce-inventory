@@ -1,14 +1,22 @@
 import Link from "next/link";
-import { Sun, Bell, Settings } from "lucide-react";
+import { Sun, Moon, Bell, Settings } from "lucide-react";
 
-const UserSettings = () => {
+interface UserSettingsProps{
+    isDarkMode:boolean;
+    toggleDarkMode: () => void;
+}
+
+const UserSettings = ({isDarkMode, toggleDarkMode}:UserSettingsProps) => {
   return (
   <>
     <div className="hidden md:flex justify-between items-center gap-5">
         {/* Theme Toggle */}
         <div>
-            <button onClick={()=>{}}>
-                <Sun className="cursor-pointer text-gray-500" size={24}/>
+            <button onClick={toggleDarkMode}>
+              {isDarkMode ?   
+                <Sun className="cursor-pointer text-gray-500" size={24}/>:
+                <Moon className="cursor-pointer text-gray-500" size={24}/>
+                }
             </button>
         </div>
         {/* Notfiications */}

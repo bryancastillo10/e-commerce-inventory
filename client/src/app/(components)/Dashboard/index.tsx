@@ -23,7 +23,7 @@ const DashboardLayout = ({children}:DashboardContainerProps) => {
   })
 
   return (
-    <div className={`${isDarkMode ? 'dark' : 'light'} flex bg-gray-50 text-slate-900 w-full min-h-screen`}>
+    <div className={`${isDarkMode ? 'dark' : 'light text-slate-700'} flex bg-gray-50  w-full min-h-screen`}>
       <Sidebar/>
       <main className={`flex flex-col w-full h-full px-9 py-7 bg-gray-200 ${isSidebarCollapse ? 'md:pl-24' : 'md:pl-72'}`}>
         <Navbar/>
