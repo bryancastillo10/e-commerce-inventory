@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import Navbar from "./Navbar";
+import Navbar from "@/app/(components)/Navbar";
+import Sidebar from "@/app/(components)/Sidebar";
 
 interface DashboardContainerProps{
     children: ReactNode;
@@ -8,7 +9,7 @@ interface DashboardContainerProps{
 const DashboardContainer = ({children}:DashboardContainerProps) => {
   return (
     <div className={`light flex bg-gray-50 text-slate-900 w-full min-h-screen`}>
-      Sidebar
+      <Sidebar/>
       <main className={`flex flex-col w-full h-full px-9 py-7 md:pl-24 bg-gray-200`}>
         <Navbar/>
         {children}
