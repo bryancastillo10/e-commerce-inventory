@@ -1,6 +1,6 @@
 "use client";
 import {  Menu } from "lucide-react";
-import { setIsSidebarCollapse } from "@/state";
+import { setIsDarkMode, setIsSidebarCollapse } from "@/state";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 
 import SearchInput from "./SearchInput";
@@ -9,9 +9,14 @@ import UserSettings from "./UserSettings";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const isSidebarCollapse = useAppSelector((state) => state.global.isSidebarCollapse);
+  const isDarkMode = useAppSelector((state)=> state.global.isDarkMode);
 
   const toggleSideBar = () => {
     dispatch(setIsSidebarCollapse(!isSidebarCollapse));
+  }
+
+  const toggleDarkMode = () => {
+    dispatch(setIsDarkMode(!isDarkMode));
   }
 
   return (
@@ -29,7 +34,7 @@ const Navbar = () => {
       </div> 
       {/* Right Side */}
       <div className="flex justify-between gap-5">
-        <UserSettings/>
+        <UserSettings isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
       </div>
     </section>
   )

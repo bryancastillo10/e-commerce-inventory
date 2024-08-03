@@ -8,6 +8,7 @@ import { Archive, CircleDollarSign, Clipboard, Layout, SlidersHorizontal, User }
 const Sidebar = () => {
   const dispatch = useAppDispatch();
   const isSidebarCollapse = useAppSelector((state) => state.global.isSidebarCollapse);
+  const isDarkMode = useAppSelector((state)=> state.global.isDarkMode);
 
   const toggleSideBar = () => {
     dispatch(setIsSidebarCollapse(!isSidebarCollapse));
@@ -22,12 +23,12 @@ const Sidebar = () => {
      <SidebarHeader isSidebarCollapse={isSidebarCollapse} toggle={toggleSideBar}/>
     {/* Menu Links */}
     <div className="flex-grow mt-8">
-        <SidebarLink href="/dashboard" icon={Layout} label="Dashboard" isSidebarCollapse={isSidebarCollapse} />
-        <SidebarLink href="/inventory" icon={Archive} label="Inventory" isSidebarCollapse={isSidebarCollapse} />
-        <SidebarLink href="/products"  icon={Clipboard} label="Products" isSidebarCollapse={isSidebarCollapse} />
-        <SidebarLink href="/users"  icon={User} label="Users" isSidebarCollapse={isSidebarCollapse} />
-        <SidebarLink href="/settings" icon={SlidersHorizontal} label="Settings" isSidebarCollapse={isSidebarCollapse} />
-        <SidebarLink href="/expenses" icon={CircleDollarSign} label="Expenses" isSidebarCollapse={isSidebarCollapse}  />
+        <SidebarLink href="/dashboard" icon={Layout} label="Dashboard" isSidebarCollapse={isSidebarCollapse} isDarkMode={isDarkMode}/>
+        <SidebarLink href="/inventory" icon={Archive} label="Inventory" isSidebarCollapse={isSidebarCollapse}  isDarkMode={isDarkMode} />
+        <SidebarLink href="/products"  icon={Clipboard} label="Products" isSidebarCollapse={isSidebarCollapse} isDarkMode={isDarkMode}  />
+        <SidebarLink href="/users"  icon={User} label="Users" isSidebarCollapse={isSidebarCollapse} isDarkMode={isDarkMode} />
+        <SidebarLink href="/settings" icon={SlidersHorizontal} label="Settings" isSidebarCollapse={isSidebarCollapse} isDarkMode={isDarkMode} />
+        <SidebarLink href="/expenses" icon={CircleDollarSign} label="Expenses" isSidebarCollapse={isSidebarCollapse}  isDarkMode={isDarkMode} />
     </div>
     {/* Footer */}
     <div className={`${isSidebarCollapse ? "hidden":"block"} mb-10`}>
