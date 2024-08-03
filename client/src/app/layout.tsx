@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
-import DashboardContainer from "./(components)/DashboardContainer";
+import DashboardContainer from "./(components)/Dashboard";
 import "./globals.css";
 
 const quicksand = Quicksand({ subsets: ["latin"] });

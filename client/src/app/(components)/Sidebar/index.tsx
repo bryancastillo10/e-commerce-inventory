@@ -1,11 +1,23 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
 import SidebarHeader from "./SidebarHeader";
+import { setIsSidebarCollapse } from "@/state";
 
 const Sidebar = () => {
+  const dispatch = useAppDispatch();
+  const isSidebarCollapse = useAppSelector((state) => state.global.isSidebarCollapse);
+
+  const toggleSideBar = () => {
+    dispatch(setIsSidebarCollapse(!isSidebarCollapse));
+  }
+
+  const sidebarClassNames = `fixed flex flex-col bg-white transition-all duration-500 overflow-hidden h-full shadow-md z-40
+  ${isSidebarCollapse ? "w-0 md:w-16":"w-72 md:w-64"}`;
+
   return (
-    <div>
+    <div className={sidebarClassNames}>
     {/* Header Logo */}
-     <SidebarHeader/>
+     <SidebarHeader toggle={toggleSideBar}/>
     {/* Menu Links */}
     <div className="flex-grow mt-8">
         {/* Links List */}
