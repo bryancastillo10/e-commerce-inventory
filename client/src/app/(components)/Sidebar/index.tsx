@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className={sidebarClassNames}>
     {/* Header Logo */}
-     <SidebarHeader toggle={toggleSideBar}/>
+     <SidebarHeader isSidebarCollapse={isSidebarCollapse} toggle={toggleSideBar}/>
     {/* Menu Links */}
     <div className="flex-grow mt-8">
         {/* Links List */}
