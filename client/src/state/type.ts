@@ -1,6 +1,6 @@
 export interface DashboardMetricsType {
   popularProducts: Product[];
-  salesSummary: SalesSummary[];
+  saleSummary: SalesSummary[];
   purchaseSummary: PurchaseSummary[];
   expenseSummary: ExpenseSummary[];
   expenseByCategorySummary: ExpenseByCategorySummary[];
@@ -14,7 +14,7 @@ interface Product {
   stockQuantity: number;
 }
 
-interface SalesSummary {
+export interface SalesSummary {
   salesSummaryId: string;
   totalValue: number;
   changePercentage?: number;
