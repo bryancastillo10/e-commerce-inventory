@@ -1,4 +1,5 @@
 "use client";
+import ExpenseSummaryCard from "./ExpenseSummaryCard";
 import PopularProductsCard from "./PopularProductsCard";
 import PurchaseSummaryCard from "./PurchaseSummaryCard";
 import SalesSummaryCard from "./SalesSummaryCard";
@@ -9,7 +10,7 @@ const Dashboard = () => {
       <PopularProductsCard />
       <SalesSummaryCard />
       <PurchaseSummaryCard />
-      <div className="row-span-3 bg-gray-500" />
+      <ExpenseSummaryCard/>
       <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
       <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
       <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
