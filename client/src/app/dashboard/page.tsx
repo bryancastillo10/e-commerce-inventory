@@ -3,6 +3,11 @@ import ExpenseSummaryCard from "./ExpenseSummaryCard";
 import PopularProductsCard from "./PopularProductsCard";
 import PurchaseSummaryCard from "./PurchaseSummaryCard";
 import SalesSummaryCard from "./SalesSummaryCard";
+import StatCard from './StatCard';
+
+
+import { Package, Tag, CheckCircle2 } from "lucide-react";
+import { customerExpensesDetails, receivedPendingDetails, salesDiscountDetails } from "./StatCardContent";
 
 const Dashboard = () => {
   return (
@@ -11,9 +16,25 @@ const Dashboard = () => {
       <SalesSummaryCard />
       <PurchaseSummaryCard />
       <ExpenseSummaryCard/>
-      <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
-      <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
-      <div className="md:row-span-1 xl:row-span-2 bg-gray-500" />
+      <StatCard
+        title="Customer and Expenses"
+        dateRange="10 - 25  July 2024"
+        primaryIcon={<Package className="text-emerald-600 size-6"/>}
+        details={customerExpensesDetails}
+      />
+      <StatCard
+        title="Sales and Discount"
+        dateRange="10 - 25 July 2024"
+        primaryIcon={<Tag  className="text-emerald-600 size-6"/>}
+        details={salesDiscountDetails}
+      />
+      <StatCard
+        title="Received and Pending Orders"
+        dateRange="10 - 25 July 2024"
+        primaryIcon={<CheckCircle2 className="text-emerald-600 size-6"/>}
+        details={receivedPendingDetails}
+     />
+
     </div>
   );
 };
