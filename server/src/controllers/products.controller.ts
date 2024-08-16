@@ -31,5 +31,26 @@ export const getProducts = async (
     req:Request,
     res: Response
 ):Promise<void> => {
+    try{
+        const query = req.query.search?.toString();
+        const products = await prisma.products.findMany(
+        {
+            where: {
+                name: {
+                    contains: query
+                }
+            }
+        });
 
+        if(!products){
+            res.status(404).json({message:"Product not found"});
+        }
+
+        res.json(products);
+    }
+    catch(error){
+        res
+        .status(500)
+        .json({message:"Error at getProducts controller"});
+    }
 }
